@@ -11,7 +11,7 @@ import { LoadMoreData } from '../components/LoadMoreData'
 const Home: NextPage = ({pokemonsDetails, next} : InferGetServerSidePropsType<typeof getServerSideProps> ) => {
 
   const [dataPokemons, setDataPokemons] = useState(pokemonsDetails);
-  const [nextUrl, setNextUrl] = useState(next);
+  const [nextUrl, setNextUrl] = useState<string>(next);
   const [loading, setLoading] = useState<boolean>(false);
 
   const handleLoadNextPokemons = async () => {

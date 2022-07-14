@@ -43,6 +43,7 @@ const Home: NextPage = ({pokemonsDetails, next} : InferGetServerSidePropsType<ty
                     name={pokemon.name}
                     typesPokemon={pokemon.typesPokemon}
                     image={pokemon.image}
+                    key={pokemon.id}
                   />
                 </>
               ))}

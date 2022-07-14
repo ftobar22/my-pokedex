@@ -1,4 +1,4 @@
-import { URL_IMAGES } from '../statics/url'
+import { URL_IMAGES, URL_API } from '../statics/url'
 import { PokemonData, PokemonTypes } from '../types/pokemon'
 
 // Method to retrieve Pokemon Details from API.
@@ -19,4 +19,10 @@ export const processTypesPokemon = async (typesDataPokemon: Array<PokemonTypes>)
         return element.type.name 
     })
     return Promise.all(types)
+}
+
+export const getPokemonDetailByName = async (name: string) => {
+        const pokemonUrl = `${URL_API}pokemon/${name}`
+        const pokemonsDetails = await getPokemonsDetails([{"name": name, "url": pokemonUrl}])
+        return Promise.all(pokemonsDetails)
 }

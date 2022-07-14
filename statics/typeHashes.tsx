@@ -18,3 +18,24 @@ export const TYPES_TO_SPANISH: any = {
     "grass": "Planta",
     "ground": "Tierra",
 }
+
+export const TYPE_TO_COLOR: any = {
+    "fire": '#ff983f',
+    "grass": '#35c04a',
+	"ice": '#4bd2c1',
+	"water": '#3393dd',
+	"normal": '#929ba3',
+	"fighting": '#e12c6a',
+	"flying": '#8aace4',
+	"ground": '#e97333',
+	"psychic": '#ff6676',
+	"electric": '#fbd200',
+	"poison": '#b667cf',
+	"bug": '#84c400',
+	"dragon": '#0070ca',
+	"rock": '#c9b787',
+	"dark": '#5b5366',
+	"ghost": '#4b6ab3',
+	"steel": '#598fa3',
+	"fairy": '#fb8aec',
+};

@@ -2,7 +2,7 @@ import React from 'react';
 import Image from 'next/image';
 import { PokemonDetails } from '../types/pokemon'
 import { fillId, capitalize } from '../utils/helpers'
-import { TYPES_TO_SPANISH } from '../statics/typeHashes'
+import { TYPES_TO_SPANISH, TYPE_TO_COLOR } from '../statics/typeHashes'
 
 export const PokemonCard = (pokemon: PokemonDetails) => {
   return (
@@ -32,7 +32,7 @@ export const PokemonCard = (pokemon: PokemonDetails) => {
                     <div className="place-items-start flex no-underline text-black">
                     {pokemon.typesPokemon.map((type: string, index: number) => {
                         return (
-                            <span className="text-xs inline-block py-1 ml-3 bg-white last:mr-1 mr-2" key={index} >
+                            <span className="text-xs inline-block py-1 px-2.5 ml- bg-white last:mr-1 mr-2 text-white  rounded-md" key={index} style={{backgroundColor: TYPE_TO_COLOR[type]}}  >
                                 { TYPES_TO_SPANISH[type] }
                             </span>
                             )

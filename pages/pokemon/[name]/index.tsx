@@ -10,7 +10,7 @@ export const getServerSideProps = async (context: any) => {
   return { props : { pokemonDetail }}
 }
 
-export const PokemonDetailPage: NextPage = ({pokemonDetail}: InferGetServerSidePropsType<typeof getServerSideProps>) => {
+const PokemonDetailPage = ({pokemonDetail}: InferGetServerSidePropsType<typeof getServerSideProps>) => {
   const pokemon = pokemonDetail[0]
 
   return (

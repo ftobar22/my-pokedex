@@ -1,14 +1,29 @@
-import { InferGetServerSidePropsType } from "next";
-import type { NextPage } from 'next'
+import { useState } from "react";
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
-import { GetServerSideProps } from 'next'
+import { GetServerSideProps, NextPage, InferGetServerSidePropsType } from 'next'
 import { getAllPokemons } from '../utils/getAllPokemons'
 import { getPokemonsDetails } from '../utils/getPokemonDetails'
 import { PokemonCard } from '../components/PokemonCard'
 import { PokemonDetails } from '../types/pokemon'
+import { LoadMoreData } from '../components/LoadMoreData'
 
-const Home: NextPage = ({results, pokemonsDetails, next} : InferGetServerSidePropsType<typeof getServerSideProps> ) => {
+const Home: NextPage = ({pokemonsDetails, next} : InferGetServerSidePropsType<typeof getServerSideProps> ) => {
+
+  const [dataPokemons, setDataPokemons] = useState(pokemonsDetails);
+  const [nextUrl, setNextUrl] = useState(next);
+  const [loading, setLoading] = useState<boolean>(false);
+
+  const handleLoadNextPokemons = async () => {
+    setLoading(true);
+    const result = await fetch(nextUrl);
+    const { results, next } = await result.json()
+    setNextUrl(next);
+    const pokemonsUpdatedDetails = await getPokemonsDetails(results);
+    setDataPokemons([...dataPokemons, ...pokemonsUpdatedDetails]);
+    setLoading(false);
+  }
+
   return (
     <div className={styles.container}>
       <Head>
@@ -21,7 +36,7 @@ const Home: NextPage = ({results, pokemonsDetails, next} : InferGetServerSidePro
         <div className="max-w-2xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
           <h2 className="text-4xl mb-8 text-gray-420">Pokédex</h2>
           <div className="flex flex-wrap -mx-1 lg:-mx-4">
-              {pokemonsDetails.map((pokemon: PokemonDetails) => (
+              {dataPokemons.map((pokemon: PokemonDetails) => (
                 <>
                   <PokemonCard 
                     id={pokemon.id}
@@ -32,6 +47,10 @@ const Home: NextPage = ({results, pokemonsDetails, next} : InferGetServerSidePro
                 </>
               ))}
           </div>
+          <LoadMoreData 
+            onClick={handleLoadNextPokemons}
+            loading={loading}
+          />
         </div>
       </div>
     </div>

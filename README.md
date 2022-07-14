@@ -1,11 +1,11 @@
 # Pokédex Project
 ## What it's Pokédex?
 
-Pokedex it's a project inspired in [https://pokemon.com/el/pokedex/](https://www.pokemon.com/el/pokedex/). The principal idea it's show different Pokemons and his types. 
+Pokedex it's a project inspired in [https://pokemon.com/el/pokedex/](https://www.pokemon.com/el/pokedex/). The principal idea it's showing different Pokemons and his types. 
 
 ## Data
 
-Data comes from API 
+Data comes from API:
 > [https://pokeapi.co/api/v2/](https://pokeapi.co/api/v2/)
 
 ## Technologies
@@ -18,7 +18,8 @@ Project realized using:
 
 ## Local Setup
 
-Run the development server:
+1. You need to have installed `node` and `npm`. 
+2. Run the development server:
 
 ```bash
 npm run dev
@@ -26,7 +27,7 @@ npm run dev
 yarn dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+3. Open [http://localhost:3000](http://localhost:3000) :)
 
 ## Deploy on Vercel
 

@@ -1,11 +1,11 @@
 import { useState } from "react";
+import { GetServerSideProps, NextPage, InferGetServerSidePropsType } from 'next'
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
-import { GetServerSideProps, NextPage, InferGetServerSidePropsType } from 'next'
+import { PokemonDetails } from '../types/pokemon'
 import { getAllPokemons } from '../utils/getAllPokemons'
 import { getPokemonsDetails } from '../utils/getPokemonDetails'
 import { PokemonCard } from '../components/PokemonCard'
-import { PokemonDetails } from '../types/pokemon'
 import { LoadMoreData } from '../components/LoadMoreData'
 
 const Home: NextPage = ({pokemonsDetails, next} : InferGetServerSidePropsType<typeof getServerSideProps> ) => {

@@ -1,8 +1,8 @@
 import React from 'react'
 import { NextPage, InferGetServerSidePropsType } from 'next'
+import Link from 'next/link'
 import { getPokemonDetailByName } from '../../../utils/getPokemonDetails'
 import { PokemonDetail } from '../../../components/PokemonDetail'
-import Link from 'next/link'
 
 export const getServerSideProps = async (context: any) => {
   const { name } = await context.params
@@ -12,7 +12,6 @@ export const getServerSideProps = async (context: any) => {
 
 export const PokemonDetailPage: NextPage = ({pokemonDetail}: InferGetServerSidePropsType<typeof getServerSideProps>) => {
   const pokemon = pokemonDetail[0]
-  console.log(pokemon)
 
   return (
     <div> 

@@ -6,7 +6,8 @@ export interface PokemonData {
 export interface PokemonDetails {
     id: number
     name: string
-    types: string
+    typesPokemon: Array<string>
+    image: string
 }
 
 export interface PokemonTypes { 

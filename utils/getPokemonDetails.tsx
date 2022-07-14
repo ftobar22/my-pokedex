@@ -1,4 +1,4 @@
-import { URL_IMAGES } from './url'
+import { URL_IMAGES } from '../statics/url'
 import { PokemonData, PokemonTypes } from '../types/pokemon'
 
 // Method to retrieve Pokemon Details from API.

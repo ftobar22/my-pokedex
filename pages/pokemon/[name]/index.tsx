@@ -23,7 +23,7 @@ const PokemonDetailPage = ({pokemonDetail}: InferGetServerSidePropsType<typeof g
       key={pokemon.id}
     />
 
-    <div className="flex justify-center">
+    <div className="flex justify-center py-10">
       <Link href='/' >
           <button
             type="button"
